@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 function getMovie(id) {
-  return fetch(`${baseUrl}/?apikey=${apikey}&i=${id}`)
+  return fetch(`${baseUrl}/?apikey=${process.env.OMDB_ACCESS_KEY}&i=${id}`)
     .then(data => data.json());
 }
 
