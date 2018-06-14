@@ -1,0 +1,17 @@
+service: movie-bot
+
+provider:
+  name: aws
+  role: arn:aws:iam::786856905369:role/parallel-api-lambda
+  runtime: nodejs6.10
+  region: us-east-2
+
+functions:
+  getRating:
+    handler: handler.getRating
+    environment:
+      OMDB_ACCESS_KEY: ${env:OMDB_ACCESS_KEY}
+    events:
+      - http:
+          path: rating
+          method: post
