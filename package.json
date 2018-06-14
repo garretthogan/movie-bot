@@ -10,6 +10,8 @@
   "author": "gret",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "node-fetch": "^2.1.2"
   }
 }
