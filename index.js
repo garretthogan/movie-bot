@@ -10,8 +10,14 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const apikey = process.env.OMDB_ACCESS_KEY;
 function getMovie(id) {
-  return fetch(`${baseUrl}/?apikey=${process.env.OMDB_ACCESS_KEY}&i=${id}`)
+  return fetch(`${baseUrl}/?apikey=${apikey}&i=${id}`)
+    .then(data => data.json());
+}
+
+function getMovieByTitle(title) {
+  return fetch(`${baseUrl}/?apikey=${apikey}t=${title}`)
     .then(data => data.json());
 }
 
@@ -21,10 +27,9 @@ app.get('/', (req, res) => {
 
 app.post('/slack', (req, res) => {
   console.log(req.body);
-  const imdbId = req.body.text;
-  getMovie(imdbId).then((movie) => {
-
-    res.send(movie.Metascore);
+  const title = req.body.text;
+  getMovieByTitle(title).then((results) => {
+    res.send(results.Search[0].Metascore);
   });
 });
 
