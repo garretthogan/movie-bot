@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/slack', (req, res) => {
+  res.setHeader('Content-Type', 'Application/json');
   console.log(req.body);
   const title = req.body.text;
   getMovieByTitle(title).then((movie) => {
