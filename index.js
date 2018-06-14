@@ -30,7 +30,11 @@ app.post('/slack', (req, res) => {
   const title = req.body.text;
   getMovieByTitle(title).then((movie) => {
     console.log(movie);
-    res.send(movie.Metascore);
+    const message = {
+      response_type: 'in_channel',
+      text: `Metascore: ${movie.Metascore}`,
+    };
+    res.send(JSON.stringify(message));
   });
 });
 
