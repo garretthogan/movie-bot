@@ -7,6 +7,7 @@ const baseUrl = 'http://www.omdbapi.com';
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 function getMovie(id) {
@@ -22,6 +23,7 @@ app.post('/slack', (req, res) => {
   console.log(req.body);
   const imdbId = req.body.text;
   getMovie(imdbId).then((movie) => {
+
     res.send(movie.Metascore);
   });
 });
