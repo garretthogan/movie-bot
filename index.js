@@ -28,9 +28,9 @@ app.get('/', (req, res) => {
 app.post('/slack', (req, res) => {
   console.log(req.body);
   const title = req.body.text;
-  getMovieByTitle(title).then((results) => {
-    console.log(results);
-    res.send(results.Search[0].Metascore);
+  getMovieByTitle(title).then((movie) => {
+    console.log(movie);
+    res.send(movie.Metascore);
   });
 });
 
