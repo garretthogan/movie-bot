@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
   res.sendStatus(200);
 });
 
-app.get('/slack', (req, res) => {
+app.post('/slack', (req, res) => {
   res.send('Hello world!');
 });
 
