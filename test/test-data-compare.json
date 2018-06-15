@@ -51,6 +51,6 @@
     },
     "apiId": "asdf"
   },
-  "body": "token=0QlLvJwCbCXLdubiOsPt8qMH&team_id=T8UCGGR6C&team_domain=salt-and-fire&channel_id=C8V5P3C9K&channel_name=usa&user_id=U8V5S0KQV&user_name=garretthogan18&command=%2Frating&text=star+wars,iron+man&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2FT8UCGGR6C%2F381799792500%2FL6kG6l2AOmWXgbsQVJoyGM7S&trigger_id=381924152867.300424569216.dd2ba8b343169921fc3487f0a30b8ecb",
+  "body": "token=0QlLvJwCbCXLdubiOsPt8qMH&team_id=T8UCGGR6C&team_domain=salt-and-fire&channel_id=C8V5P3C9K&channel_name=usa&user_id=U8V5S0KQV&user_name=garretthogan18&command=%2Frating&text=star+wars,iron+man,asdfasdfsd&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2FT8UCGGR6C%2F381799792500%2FL6kG6l2AOmWXgbsQVJoyGM7S&trigger_id=381924152867.300424569216.dd2ba8b343169921fc3487f0a30b8ecb",
   "isBase64Encoded": false
 }

@@ -49,8 +49,11 @@ function compareMovies(event, context, callback) {
   .then((movies) => {
     console.log(movies);
 
+    // remove any movies that weren't found
+    const filteredMovies = movies.filter(movie => !!movie.Metascore);
+
     // sort movies in descending order
-    const orderedMovies = movies.sort((a, b) => parseInt(b.Metascore) - parseInt(a.Metascore));
+    const orderedMovies = filteredMovies.sort((a, b) => parseInt(b.Metascore) - parseInt(a.Metascore));
 
 
     const message = {
