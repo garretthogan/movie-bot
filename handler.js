@@ -44,6 +44,12 @@ function compareMovies(event, context, callback) {
   const movies = qs.parse(event.body).text.split(',');
   
   console.log(`Extracted titles: ${movies}`);
+
+  // if we didn't get two movies, bail out early
+  return callback(null, {
+    statusCode: 200,
+    body: JSON.stringify('You need to supply two valid movies')
+  });
   
   Promise.all([getMovieByTitle(movies[0]), getMovieByTitle(movies[1])])
   .then((movies) => {
