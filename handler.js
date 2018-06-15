@@ -36,6 +36,23 @@ function getRating(event, context, callback) {
   });
 }
 
+function getDetails (event, context, callback) {
+  const title = qs.parse(event.body).text;
+
+  console.log(`Extracted title: ${title}`);
+  
+  getMovieByTitle(title).then((movie) => {
+    const message = {
+      response_type: 'in_channel',
+      text: `*${movie.Title}*\n\nDirector: *${movie.Director}*\nWriter(s): *${movie.Writer}*\nStars: *${movie.Actors}*\nAwards: *${movie.Awards}*\nReleased: *${movie.Released}*\n\nPlot: *${movie.Plot}*\n`
+    };
+    callback(null, {
+      statusCode: 200,
+      body: JSON.stringify(message),
+    });
+  });
+}
+
 function compareMovies(event, context, callback) {
   
   console.log('Incoming event:', event);
@@ -84,5 +101,6 @@ function compareMovies(event, context, callback) {
 
 module.exports = {
   getRating,
-  compareMovies
+  compareMovies,
+  getDetails
 };

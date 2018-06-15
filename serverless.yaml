@@ -25,3 +25,11 @@ functions:
       - http:
           path: compare
           method: post
+  getDetails:
+    handler: handler.getDetails
+    environment:
+      OMDB_ACCESS_KEY: ${env:OMDB_ACCESS_KEY}
+    events:
+      - http:
+          path: details
+          method: POST
