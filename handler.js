@@ -31,7 +31,10 @@ function getRating(event, context, callback) {
     };
     callback(null, {
       statusCode: 200,
-      body: JSON.stringify(message)
+      body: {
+        response_type: 'in_channel',
+        text: `You need to supply two valid movies`,
+      }
     });
   });
 }
