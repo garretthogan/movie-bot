@@ -44,7 +44,7 @@ function getDetails (event, context, callback) {
   getMovieByTitle(title).then((movie) => {
     const message = {
       response_type: 'in_channel',
-      text: `*${movie.Title}*\n\nDirector: *${movie.Director}*\nWriter(s): *${movie.Writer}*\nStars: *${movie.Actors}*\nAwards: *${movie.Awards}*\nReleased: *${movie.Released}*\n\nPlot: *${movie.Plot}*\n`
+      text: `*${movie.Title} - ${movie.Runtime}*\n\nDirector: *${movie.Director}*\nWriter(s): *${movie.Writer}*\nStars: *${movie.Actors}*\nAwards: *${movie.Awards}*\nReleased: *${movie.Released}*\n\nPlot: *${movie.Plot}*\n`
     };
     callback(null, {
       statusCode: 200,
